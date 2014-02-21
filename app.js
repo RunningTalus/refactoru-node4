@@ -2,7 +2,7 @@
 /**
  * Module dependencies.
  */
-var fs = require('fs');
+
 var express = require('express');
 var routes = require('./routes');
 var user = require('./routes/user');
@@ -30,47 +30,7 @@ if ('development' == app.get('env')) {
 
 app.get('/', routes.index);
 app.get('/users', user.list);
-app.get('/seville', function(req, res){
-	fs.readFile('public/seville.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
 
-app.get('/canary', function(req, res){
-	fs.readFile('public/canary.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
-
-app.get('/capeverde', function(req, res){
-	fs.readFile('public/capeverde.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
-
-app.get('/straitofmagellan', function(req, res){
-	fs.readFile('public/straitofmagellan.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
-
-app.get('/guam', function(req, res){
-	fs.readFile('public/guam.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
-
-app.get('/philippines', function(req, res){
-	fs.readFile('public/philippines.html', function(err, data){
-		res.writeHead(200, {'Content-Type': 'text/html'});
-  		res.end(data);
-	});
-});
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
 });
